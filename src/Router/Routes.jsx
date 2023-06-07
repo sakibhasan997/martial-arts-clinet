@@ -4,5 +4,4 @@ const router = createBrowserRouter([
       element: <div>Hello world!</div>,
     },
   ]);
-
   export default router
