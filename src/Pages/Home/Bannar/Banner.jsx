@@ -78,31 +78,6 @@ const Banner = () => {
                     </div>
                 </div>
             </div>
-
-            {/* <Carousel className='pt-20'>
-                <div className=''>
-                    <img className='relative' src={banner3} />
-                    <div className='absolute top-1/3 left-1/3'>
-                        <div className='text-white text-2xl w-96 bg-black px-5 py-4 rounded-full'>
-                            <h2 className='font-normal uppercase'>Martial Arts Academy </h2>
-                        </div>
-                        <br />
-                        <h1 className='bg-red-600 text-white text-5xl font-bold px-8 py-4 uppercase'>Train with best Legends </h1>
-                        <p>
-                            Every day we bring hope to millions of children in the world's
-                            <br />
-                            hardest places as a sign of God's unconditional love.
-                        </p>
-                        <button>apply now</button>
-                    </div>
-                </div>
-                <div>
-                    <img src={banner2} />
-                </div>
-                <div>
-                    <img src={banner} />
-                </div>
-            </Carousel> */}
         </>
     );
 };
