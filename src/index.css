@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+ul a.active{
+    background-color:#1A2F4E;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 30px;
+    padding: 8px 20px;
+}
+ul li{
+    background-color:  transparent;
+    margin-left: 10px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+ul li:hover{
+    color: #fff;
+    background-color:#1A2F4E;
+    border-radius: 30px;
+}
+.my-btn{
+    background-color: transparent;
+    padding: 8px 20px;
+    font-weight: 700;
+    transition: 0.3s;
+    color: #1A2F4E;
+    border: 1px solid #1A2F4E;
+}
+.my-btn:hover{
+    background-color:#1A2F4E;
+    color: #fff;
+    border: 1px solid #1A2F4E;
+}
+
+.my-footer{
+    height: 100%;
+    width: 100%;
+    background-image:  linear-gradient( rgba(17, 17, 17, 0.9), rgba(17, 17, 17, 0.9)), url('/src/assets/assignment-12-img/footer/bg19.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}

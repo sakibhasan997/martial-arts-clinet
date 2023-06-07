@@ -1,11 +1,11 @@
 import React from 'react';
-import logo from '../../../assets/assignment-12-img/logo/logo-wide.png'
+import logo from '../../../assets/assignment-12-img/footer/logo-wide-white.png'
 
 const Footer = () => {
     return (
         <>
-            <footer className='bg-gradient-to-r from-slate-600 to-slate-500 text-white'>
-                <div className="footer p-10  ">
+            <footer className=' my-footer   p-10'>
+                <div className=" footer max-w-[1170px] mx-auto pt-20 text-gray-400  ">
                     <div>
                         <div data-aos="zoom-in">
                             <img className='' src={logo} alt="" />
@@ -20,7 +20,7 @@ const Footer = () => {
                         </div>
                     </div>
                     <div>
-                        <span className="footer-title font-semibold text-2xl">PRODUCTS</span>
+                        <span className="uppercase mb-5 text-gray-300 border-b-2 font-semibold text-2xl ">Latest News</span>
                         <a className="link link-hover">Prices Drop</a>
                         <a className="link link-hover">New Products</a>
                         <a className="link link-hover">Best Sales</a>
@@ -29,7 +29,7 @@ const Footer = () => {
                     </div>
 
                     <div>
-                        <span className="footer-title font-semibold text-2xl">YOUR ACCOUNT</span>
+                        <span className="uppercase mb-5 border-b-2 text-gray-300  font-semibold text-2xl">Useful Links</span>
                         <a className="link link-hover">Personal Info</a>
                         <a className="link link-hover">Orders</a>
                         <a className="link link-hover">Credit Slips</a>
@@ -37,7 +37,7 @@ const Footer = () => {
                         <a className="link link-hover">Vouchers</a>
                     </div>
                     <div>
-                        <span className="footer-title font-semibold text-2xl">OUR COMPANY</span>
+                        <span className="uppercase mb-5 border-b-2 text-gray-300 font-semibold text-2xl">OUR COMPANY</span>
                         <a className="link link-hover">Delivery</a>
                         <a className="link link-hover">Legal Notice</a>
                         <a className="link link-hover">About Us</a>
@@ -47,7 +47,7 @@ const Footer = () => {
 
                     </div>
                     <div>
-                        <h4 className='footer-title font-semibold text-2xl'>Contact</h4>
+                        <h4 className='uppercase mb-5 border-b-2 text-gray-300 font-semibold text-2xl'>Contact</h4>
 
                         <div className='font-normal text-base  '>
                             <p>524 Broadway , NYC</p>
@@ -59,7 +59,7 @@ const Footer = () => {
                     </div>
 
                 </div>
-                <div className='text-center py-8'>
+                <div className='text-center text-gray-400 pt-32'>
                     <p>Copyright © 2023 - All right reserved by Kid-hippo</p>
                 </div>
             </footer>
