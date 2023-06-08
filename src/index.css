@@ -22,7 +22,8 @@ ul a.active{
 }
 .my-btn{
     background-color: transparent;
-    padding: 8px 20px;
+    padding: 0px 20px;
+    border-radius: 50px;
     font-weight: 700;
     transition: 0.3s;
     color: #1A2F4E;

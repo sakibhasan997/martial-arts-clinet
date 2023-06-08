@@ -1,9 +1,10 @@
 import React from 'react';
+import Welcome from '../Extra-section/Welcome';
 
 const Home = () => {
     return (
-        <div>
-            <h2>This is Home page</h2>
+        <div className='max-w-[1170px] my-10 mx-auto '>
+            <Welcome/>
         </div>
     );
 };

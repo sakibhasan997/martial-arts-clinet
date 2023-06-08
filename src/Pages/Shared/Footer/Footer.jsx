@@ -60,7 +60,7 @@ const Footer = () => {
 
                 </div>
                 <div className='text-center text-gray-400 pt-32'>
-                    <p>Copyright © 2023 - All right reserved by Kid-hippo</p>
+                    <p>Copyright © 2023 - All right reserved by Martial-Arts</p>
                 </div>
             </footer>
         </>
