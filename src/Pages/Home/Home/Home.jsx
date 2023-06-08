@@ -2,6 +2,7 @@ import React from 'react';
 import Welcome from '../Extra-section/Welcome';
 import { Helmet } from 'react-helmet-async';
 import Mquee from '../Mquee/Mquee';
+import Register from '../../Shared/Register/Register';
 
 const Home = () => {
     return (
@@ -11,9 +12,11 @@ const Home = () => {
                     <title>Martial Arts | Home</title>
                 </Helmet>
                 <Welcome />
+                <Register/>
 
             </div>
             <Mquee />
+
         </>
     );
 };
