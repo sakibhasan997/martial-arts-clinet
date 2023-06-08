@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../../assets/assignment-12-img/logo/logo-wide.png'
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../../Providers/AuthProviders';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext)
+    // const user = true;
 
-    const user = true;
-
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch()
+    }
 
     const navLink = <>
         <li><NavLink title='Home' to='/'>Home</NavLink></li>
@@ -20,7 +26,7 @@ const Navbar = () => {
             ' '
         }
     </>
-    return ( 
+    return (
         <>
             <div className="navbar lg:px-52 bg-white fixed z-10 ">
                 <div className="navbar-start">
@@ -44,9 +50,9 @@ const Navbar = () => {
                 <br />
                 <div className="navbar-end">
 
-                    {!user ?
+                    {user ?
                         <>
-                            <button title='LogOut' className="btn  my-btn" >Log Out</button>
+                            <button onClick={handleLogOut} title='LogOut' className="btn  my-btn " >Log Out</button>
                         </>
                         :
                         <Link to='/login' title='Login' className="btn my-btn">Login</Link>
@@ -54,8 +60,8 @@ const Navbar = () => {
                 </div>
                 <br />
                 {
-                    user && <div className='ms-5 w-[55px] h-[55px]  '>
-                        <img src='' className=' cursor-pointer w-[55px] h-[45px] object-fill rounded-full bg-black' />
+                    user && <div className='ms-5 w-[90px] h-[55px] border-2 cursor-pointer border-cyan-950 rounded-full '>
+                        <img src={user?.photoURL} title={user?.displayName} className=' cursor-pointer object-fill rounded-full bg-black' />
                     </div>
 
                 }

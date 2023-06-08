@@ -5,11 +5,12 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from '../../../Providers/AuthProviders';
 
 const Login = () => {
 
-    // const { user, gProvider, gitProvider, createLogin } = useContext()
-    // useTitle('Login')
+    const { user, gProvider, createLogin } = useContext(AuthContext)
+
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -51,18 +52,6 @@ const Login = () => {
             })
     }
 
-    const handleGithub = () => {
-        gitProvider()
-            .then(result => {
-                const loggedUser = result.user;
-                console.log(loggedUser);
-                navigate(from, { replace: true })
-            })
-            .catch(error => {
-                const errorMessage = error.message;
-                console.log(errorMessage);
-            })
-    }
 
     const [passwordEye, setPasswordEye] = useState(false);
 
