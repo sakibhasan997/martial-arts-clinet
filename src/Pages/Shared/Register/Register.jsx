@@ -1,18 +1,59 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import { AuthContext } from "../../../Providers/AuthProviders";
+import { updateProfile } from "firebase/auth";
+import { ToastContainer, toast } from "react-toastify";
 
 const Register = () => {
-  // handle form events
-  const { register, handleSubmit, watch, formState: { errors } } = useForm({
+
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('')
+  const { user, createRegister, gProvider } = useContext(AuthContext);
+  const { register, handleSubmit, reset, watch, formState: { errors } } = useForm({
     mode: 'onTouched'
   });
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
   // handle submit 
-  const onSubmit = data => console.log(data);
+  const onSubmit = data => {
+    console.log(data);
+    createRegister(data.email, data.password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        updateProfile(user, { displayName: data.name, photoURL: data.photo })
+
+        setError('')
+        toast('Your Auth is successful');
+        setSuccess('Your Auth is successful')
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage);
+      });
+  };
+
+  const handleSocial = () => {
+    gProvider()
+      .then(result => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        navigate(from, { replace: true })
+      })
+      .catch(error => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      })
+  }
 
 
   // handle password eye
@@ -50,12 +91,21 @@ const Register = () => {
             {/* body */}
             <div>
               <div className="mx-5">
+                <p className='text-red-600'>{error}</p>
+                <p className='text-success'>{success}</p>
                 <div className="form-control">
+                  <label className="label">
+                    <span className="label-text"> Your Name Address*</span>
+                  </label>
+                  <input type="text" name="name" {...register("name", { required: true })} placeholder="Your Name.." className="input input-bordered" required />
+                  {errors.name && <span className="text-sm text-red-500">Name field is required</span>}
+                </div>
+                <div className="form-control mt-5">
                   <label className="label">
                     <span className="label-text"> Your Email Address*</span>
                   </label>
-                  <input type="text" name="name" {...register("name", { required: true })} placeholder="Your Name.." className="input input-bordered" required />
-                  {errors.name && <span>This field is required</span>}
+                  <input type="email" name="email" {...register("email", { required: true })} placeholder="Your Email.." className="input input-bordered" required />
+                  {errors.email && <span className="text-sm text-red-500">Email field is required</span>}
                 </div>
                 <div className="form-control mt-5">
                   <label className="label">
@@ -80,10 +130,10 @@ const Register = () => {
                       "focus:border-red-500 focus:ring-red-500 border-red-500"} `}
                     {...register("password", {
                       required: 'Password is required',
-                      pattern: {
-                        value: /^(\S)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹])[a-zA-Z0-9~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]{10,16}$/,
-                        message: 'Password should include at least one uppercase, one numeric value and one special character'
-                      },
+                      // pattern: {
+                      //   value: /^(\S)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹])[a-zA-Z0-9~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]{10,16}$/,
+                      //   message: 'Password should include at least one uppercase, one numeric value and one special character'
+                      // },
                       minLength: {
                         value: 8,
                         message: 'Minimum Required length is 8'
@@ -149,12 +199,13 @@ const Register = () => {
             </div>
             <div className="divider">OR</div>
             <div className=" text-center">
-              <button className="btn btn-circle  btn-outline btn-primary">
+              <button onClick={handleSocial} className="btn btn-circle  btn-outline btn-primary">
                 <FaGoogle className='' />
               </button>
             </div>
             <p className='mt-5'>Already Have an Account? <Link className='link-hover btn-link' to='/login'>Login</Link> </p>
           </div>
+          <ToastContainer />
         </form>
       </section>
     </>

@@ -12,7 +12,6 @@ const Home = () => {
                     <title>Martial Arts | Home</title>
                 </Helmet>
                 <Welcome />
-                <Register/>
 
             </div>
             <Mquee />
