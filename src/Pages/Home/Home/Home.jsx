@@ -3,6 +3,8 @@ import Welcome from '../Extra-section/Welcome';
 import { Helmet } from 'react-helmet-async';
 import Mquee from '../Mquee/Mquee';
 import Register from '../../Shared/Register/Register';
+import PopularClass from '../PopularClass/PopularClass';
+import Instructors from '../Instructors/Instructors';
 
 const Home = () => {
     return (
@@ -12,7 +14,8 @@ const Home = () => {
                     <title>Martial Arts | Home</title>
                 </Helmet>
                 <Welcome />
-
+                <PopularClass/>
+                <Instructors/>
             </div>
             <Mquee />
 

@@ -10,14 +10,14 @@ const Welcome = () => {
     return (
         <div>
             <SectionTitle heading='Welcome To' colors='Martial Art' subHeading='Join our martial art club and be healthy.' />
-            <div className=' grid grid-cols-1 lg:grid-cols-2  gap-5'>
+            <div className=' grid grid-cols-1 lg:grid-cols-2  gap-5 py-10'>
                 <div className=''>
                     <h2 className='font-semibold lg:text-3xl font-serif text-center lg:text-start'>Welcome To Our <span className='text-red-600'>Martial Art</span></h2>
 
                     <p className='py-3 text-center lg:text-start'>combining both physical  cultivate well-rounded individuals.</p>
 
                     <p className='text-gray-500 text-center lg:text-start'>Martial arts refer to a variety of traditional combat practices and systems that have been developed and refined over centuries. These disciplines emphasize self-defense, physical fitness, mental discipline, and personal growth. Martial arts can be categorized into various styles and techniques, each with its unique philosophies and training methods.</p>
-                    <div className='my-8 grid grid-cols-1 lg:grid-cols-2 lg:gap-10 items-center'>
+                    <div className='my-8 grid grid-cols-2 lg:grid-cols-2 lg:gap-10 items-center'>
                         <div>
                             <div className='flex items-center mb-4'>
                                 <div className='w-14 mr-4 '>

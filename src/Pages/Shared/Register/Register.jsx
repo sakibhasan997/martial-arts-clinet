@@ -135,8 +135,8 @@ const Register = () => {
                       //   message: 'Password should include at least one uppercase, one numeric value and one special character'
                       // },
                       minLength: {
-                        value: 8,
-                        message: 'Minimum Required length is 8'
+                        value: 6,
+                        message: 'Minimum Required length is 6'
                       },
                       maxLength: {
                         value: 20,
