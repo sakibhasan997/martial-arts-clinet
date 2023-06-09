@@ -1,44 +1,61 @@
 [
-    {
-      "id": 1,
-      "className": "Zen Tai Chi Flow",
-      "img": "https://i.ibb.co/Y8Wwdyy/1.jpg",
-      "location": "Harmony Martial Arts Center, Serenity Town",
-      "time": "Monday, 9:00 AM - 10:30 AM"
-    },
-    {
-      "id": 2,
-      "className": "Powerful Krav Maga",
-      "img": "https://i.ibb.co/4ssX11b/2.jpg",
-      "location": "Defend and Attack Martial Arts Studio",
-      "time": "Tuesday, 6:30 PM - 8:00 PM"
-    },
-    {
-      "id": 3,
-      "className": "Elegant Fusion",
-      "img": "https://i.ibb.co/Z1cqk6b/3.jpg",
-      "location": "Rhythm and Motion Academy, Harmonyville",
-      "time": "Wednesday, 7:00 PM - 8:30 PM"
-    },
-    {
-      "id": 4,
-      "className": "Dynamic Kickboxing",
-      "img": "https://i.ibb.co/rdLh590/4-1.jpg",
-      "location": "Thunderstrike Gym, Velocity City",
-      "time": "Thursday, 5:30 PM - 7:00 PM"
-    },
-    {
-      "id": 5,
-      "className": "Graceful Techniques",
-      "img": "https://i.ibb.co/1bNyD8f/4.jpg",
-      "location": "Harmony Martial Arts Center, Serenity Town",
-      "time": "Friday, 7:30 PM - 9:00 PM"
-    },
-    {
-      "id": 6,
-      "className": "Intense Brazilian ",
-      "img": "https://i.ibb.co/qk0cV20/5.jpg",
-      "location": "Submission Academy, Valorville",
-      "time": "Saturday, 6:00 PM - 7:30 PM"
-    }
-  ]
+  {
+    "className": "Zen Tai Chi Flow",
+    "img": "https://i.ibb.co/Y8Wwdyy/1.jpg",
+    "location": "Harmony Martial Arts Center, Serenity Town",
+    "time": "Monday, 9:00 AM - 10:30 AM",
+    "studentEmails": "student4@example.com",
+    "student_enroll": 2700,
+    "price": 3223
+  },
+  {
+    "className": "Powerful Krav Maga",
+    "img": "https://i.ibb.co/4ssX11b/2.jpg",
+    "location": "Defend and Attack Martial Arts Studio",
+    "time": "Tuesday, 6:30 PM - 8:00 PM",
+    "student_enroll": 5400,
+    "price": 3253
+  },
+  {
+    "className": "Elegant Fusion",
+    "img": "https://i.ibb.co/Z1cqk6b/3.jpg",
+    "location": "Rhythm and Motion Academy, Harmonyville",
+    "time": "Wednesday, 7:00 PM - 8:30 PM",
+    "student_enroll": 7000,
+    "price": 1053
+  },
+  {
+    "className": "Dynamic Kickboxing",
+    "img": "https://i.ibb.co/rdLh590/4-1.jpg",
+    "location": "Thunderstrike Gym, Velocity City",
+    "time": "Thursday, 5:30 PM - 7:00 PM",
+    "student_enroll": 3000,
+    "price": 6053
+  },
+  {
+    "className": "Graceful Techniques",
+    "img": "https://i.ibb.co/1bNyD8f/4.jpg",
+    "location": "Harmony Martial Arts Center, Serenity Town",
+    "time": "Friday, 7:30 PM - 9:00 PM",
+    "student_enroll": 2000,
+    "price": 3053
+  },
+  {
+    "className": "Intense Brazilian ",
+    "img": "https://i.ibb.co/qk0cV20/5.jpg",
+    "location": "Submission Academy, Valorville",
+    "time": "Saturday, 6:00 PM - 7:30 PM",
+    "student_enroll": 5000,
+    "price": 3003
+  },
+  {
+    "class_name": "Beginners Photography Course",
+    "class_image": "https://i.ibb.co/ZfBk5rQ/Complete-guide-to-Photography-Online-Course-picture-1.jpg",
+    "instructor_name": "Henri Cartier-Bresson",
+    "instructor_email": "Henri Cartier-Bresson@gmail.com",
+    "avilable_seats": 60,
+    "price": 15,
+    "status": "Approved"
+  }
+  
+]

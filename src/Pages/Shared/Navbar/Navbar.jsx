@@ -1,10 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import logo from '../../../assets/assignment-12-img/logo/logo-wide.png'
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProviders';
+import useDark from '../../../Hooks/hook';
+import { CiDark } from 'react-icons/ci';
+import { MdDarkMode } from 'react-icons/md';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
+    const [isDark, setIsDark] = useState();
+    useDark(isDark);
     // const user = true;
 
     const handleLogOut = () => {
@@ -49,6 +54,9 @@ const Navbar = () => {
                 </div>
                 <br />
                 <div className="navbar-end">
+                    <button>
+                        {isDark ? <CiDark className="cursor-pointer text-2xl" onClick={() => setIsDark(false)} /> : <MdDarkMode className="cursor-pointer text-2xl" onClick={() => setIsDark(true)} />}
+                    </button>
 
                     {user ?
                         <>
