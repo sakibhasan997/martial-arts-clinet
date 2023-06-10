@@ -9,6 +9,13 @@ ul a.active{
     border-radius: 30px;
     padding: 8px 20px;
 }
+.drawer-side a.active{
+  background-color:#1A2F4E;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 30px;
+    padding: 8px 20px;
+}
 .menu li{
     background-color:  transparent;
     margin-left: 10px;

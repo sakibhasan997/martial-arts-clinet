@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { AuthContext } from "../providers/AuthProvider";
 import { Navigate, useLocation } from "react-router";
 import { ColorRing } from "react-loader-spinner";
+import { AuthContext } from "../Providers/AuthProviders";
 
 
 const PrivateRoute = ({ children }) => {
@@ -9,7 +9,7 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation();
 
     if (loading) {
-        return <div className='my-w my-32 ml-[300px]'>
+        return <div className='my-w my-32 ml-[150px] lg:ml-[750px]'>
             <ColorRing
                 visible={true}
                 height="80"

@@ -7,6 +7,9 @@ import Register from "../Pages/Shared/Register/Register";
 import ErrorPage from "../Pages/Shared/404-Page/ErrorPage";
 import Classes from "../Pages/Classes/Classes";
 import AllInstructors from "../Pages/Instructors/AllInstructors";
+import Dashboard from "../Layout/Dashboard";
+import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -41,6 +44,16 @@ const router = createBrowserRouter([
           path: '/allinstructors',
           element: <AllInstructors/>
         }
+      ]
+    },
+    {
+      path: 'dashboard',
+      element: <PrivateRoute><Dashboard/></PrivateRoute>,
+      children: [
+        {
+          path: 'myclasses',
+          element: <MyClasses/>
+        },
       ]
     }
   ]);

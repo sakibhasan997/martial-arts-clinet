@@ -13,7 +13,7 @@ const Navbar = () => {
     const [isDark, setIsDark] = useState();
     useDark(isDark);
     // const user = true;
-    // const [cart] = useQueries();
+    const [cart] = useQueries();
 
     const handleLogOut = () => {
         logOut()
@@ -25,16 +25,16 @@ const Navbar = () => {
         <li><NavLink title='Home' to='/'>Home</NavLink></li>
         <li><NavLink title='Instructors' to='/allinstructors'>Instructors</NavLink></li>
         <li><NavLink title='Classes' to='/classes'>Classes</NavLink></li>
-        <li><NavLink title='Cart' to='/'>
-            <button className="flex gap-1 items-center">
-                <FaShoppingCart></FaShoppingCart>
-                <div className="badge badge-secondary">+99</div>
-            </button>
-        </NavLink></li>
+
 
         {user ?
             <>
-
+                <li><NavLink title='Cart' to='dashboard/myclasses'>
+                    <button className="flex gap-1 items-center">
+                        <FaShoppingCart></FaShoppingCart>
+                        <div className="badge badge-secondary">+{cart?.length || 0}</div>
+                    </button>
+                </NavLink></li>
                 <li><NavLink title='Dashboard' to='/dashboard'>Dashboard </NavLink></li>
 
             </>
@@ -80,7 +80,7 @@ const Navbar = () => {
                 <br />
                 {
                     user && <div className='ms-5 w-[90px] h-[55px] cursor-pointer  '>
-                        <img src={user?.photoURL} title={user?.displayName} className=' cursor-pointer object-fill rounded-full border-2  border-cyan-950 '  />
+                        <img src={user?.photoURL} title={user?.displayName} className=' cursor-pointer object-fill rounded-full border-2  border-cyan-950 ' />
                     </div>
 
                 }

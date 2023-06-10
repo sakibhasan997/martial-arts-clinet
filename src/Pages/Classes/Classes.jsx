@@ -5,8 +5,10 @@ import { FaAccessibleIcon, FaDollarSign, FaRegClock } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
+import useQueries from '../../Hooks/useQueries';
 
 const Classes = () => {
+    const [, refetch] = useQueries();
     const navigate = useNavigate();
     const location = useLocation();
     const { user } = useContext(AuthContext)
@@ -25,7 +27,7 @@ const Classes = () => {
     const handleAddToCart = items => {
         console.log(items);
         if (user && user.email) {
-            const cartItem = {classItemId: items._id, name: items.className, img: items.img, price: items.price, email: user.email}
+            const cartItem = { classItemId: items._id, name: items.className, img: items.img, price: items.price, email: user.email }
             console.log(cartItem);
             // TODO: use localhost
             fetch('http://localhost:5000/carts', {
@@ -35,18 +37,19 @@ const Classes = () => {
                 },
                 body: JSON.stringify(cartItem)
             })
-            .then(res => res.json())
-            .then(data =>{
-                if(data.insertedId){
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: 'Class added on the cart.',
-                        showConfirmButton: false,
-                        timer: 1500
-                      })
-                }
-            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.insertedId) {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Class added on the cart.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        refetch();
+                    }
+                })
         }
         else {
             Swal.fire({
