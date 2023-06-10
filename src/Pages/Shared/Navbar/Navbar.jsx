@@ -5,12 +5,15 @@ import { AuthContext } from '../../../Providers/AuthProviders';
 import useDark from '../../../Hooks/hook';
 import { CiDark } from 'react-icons/ci';
 import { MdDarkMode } from 'react-icons/md';
+import useQueries from '../../../Hooks/useQueries';
+import { FaShoppingCart } from 'react-icons/fa';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     const [isDark, setIsDark] = useState();
     useDark(isDark);
     // const user = true;
+    // const [cart] = useQueries();
 
     const handleLogOut = () => {
         logOut()
@@ -22,8 +25,16 @@ const Navbar = () => {
         <li><NavLink title='Home' to='/'>Home</NavLink></li>
         <li><NavLink title='Instructors' to='/allinstructors'>Instructors</NavLink></li>
         <li><NavLink title='Classes' to='/classes'>Classes</NavLink></li>
+        <li><NavLink title='Cart' to='/'>
+            <button className="flex gap-1 items-center">
+                <FaShoppingCart></FaShoppingCart>
+                <div className="badge badge-secondary">+99</div>
+            </button>
+        </NavLink></li>
+
         {user ?
             <>
+
                 <li><NavLink title='Dashboard' to='/dashboard'>Dashboard </NavLink></li>
 
             </>
@@ -39,7 +50,7 @@ const Navbar = () => {
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
-                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        <ul tabIndex={0} className="menu  menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             {navLink}
                         </ul>
                     </div>
@@ -48,7 +59,7 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu menu-horizontal px-1 flex items-center py-5">
                         {navLink}
                     </ul>
                 </div>
@@ -68,8 +79,8 @@ const Navbar = () => {
                 </div>
                 <br />
                 {
-                    user && <div className='ms-5 w-[90px] h-[55px] border-2 cursor-pointer border-cyan-950 rounded-full '>
-                        <img src={user?.photoURL} title={user?.displayName} className=' cursor-pointer object-fill rounded-full bg-black' />
+                    user && <div className='ms-5 w-[90px] h-[55px] cursor-pointer  '>
+                        <img src={user?.photoURL} title={user?.displayName} className=' cursor-pointer object-fill rounded-full border-2  border-cyan-950 '  />
                     </div>
 
                 }

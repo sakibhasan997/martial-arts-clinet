@@ -1,9 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import SectionTitle from '../../components/SectionTIitle/SectionTitle';
 import { Helmet } from 'react-helmet-async';
 import { FaAccessibleIcon, FaDollarSign, FaRegClock } from 'react-icons/fa';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProviders';
+import Swal from 'sweetalert2';
 
 const Classes = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const { user } = useContext(AuthContext)
 
     const [popular, setPopular] = useState([]);
 
@@ -14,6 +20,28 @@ const Classes = () => {
                 setPopular(data);
             })
     }, [])
+
+
+    const handleAddToCart = items => {
+        console.log(items);
+        if (user && user.email) {
+
+        }
+        else {
+            Swal.fire({
+                title: 'Please login to order the food',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Login now!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/login', { state: { from: location } })
+                }
+            })
+        }
+    }
 
     return (
         <>
@@ -38,7 +66,7 @@ const Classes = () => {
                                         <p className='italic flex gap-3' > <FaRegClock /> {item.time}</p>
                                         <p className='flex gap-3'> <FaDollarSign /> Price:  ${item.price}</p>
                                         <div className="card-actions justify-end">
-                                            <button className="btn bg-[#E80040] text-white">Select </button>
+                                            <button onClick={() => handleAddToCart(item)} className="btn bg-[#E80040] text-white">Select </button>
                                         </div>
                                     </div>
                                 </div>

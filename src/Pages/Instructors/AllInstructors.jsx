@@ -2,8 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import SectionTitle from '../../components/SectionTIitle/SectionTitle';
 
+
 const AllInstructors = () => {
     const [instructors, setInstructors] = useState([]);
+
+
+    // const 
+
 
     useEffect(() => {
         fetch('https://martial-arts-server.vercel.app/all-instructors')
@@ -12,6 +17,8 @@ const AllInstructors = () => {
                 setInstructors(data)
             })
     }, [])
+
+
 
 
 
