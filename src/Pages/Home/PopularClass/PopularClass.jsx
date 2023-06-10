@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import SectionTitle from '../../../components/SectionTIitle/SectionTitle';
-import { FaMapMarkerAlt, FaRegClock } from 'react-icons/fa';
+import { FaAccessibleIcon, FaDollarSign, FaMapMarkerAlt, FaRegClock } from 'react-icons/fa';
 
 const PopularClass = () => {
     const [popular, setPopular] = useState([]);
 
     useEffect(() => {
-        fetch('/public/classes.json')
+        fetch('https://martial-arts-server.vercel.app/top-classes')
             .then(res => res.json())
             .then(data => {
                 setPopular(data);
@@ -27,9 +27,14 @@ const PopularClass = () => {
                                         <div className='absolute  top-0 left-0  bg-[#E80040] text-white px-3 py-2'><h2>Time View</h2></div>
                                     </div>
                                     <div className="card-body text-gray-500">
-                                        <h2 className="card-title text-black text-2xl font-semibold"> <span className='text-red-600 font-serif'>Private</span> | {item.className}</h2>
+                                        <h2 className="card-title text-black text-2xl font-semibold"> <span className='text-red-600 font-serif'>Classes</span> | {item.className}</h2>
+                                        <h2 className="card-title text-black text-xl font-semibold"> <span className='text-red-600 font-serif'>Instructors</span> | {item.instructorName}</h2>
+                                        <p className='flex gap-3'> <FaAccessibleIcon /> availableSeats: {item.availableSeats}</p>
                                         <p className='italic flex gap-3' > <FaRegClock /> {item.time}</p>
-                                        <p className='flex gap-3'> <FaMapMarkerAlt /> {item.location}</p>
+                                        <p className='flex gap-3'> <FaDollarSign /> Price:  ${item.price}</p>
+                                        <div className="card-actions justify-end">
+                                            <button className="btn bg-[#E80040] text-white">Select </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
