@@ -17,13 +17,13 @@ const Banner = () => {
 
                         <div className='text-white hidden lg:block  space-y-0 lg:space-y-7 lg:pr-12 w-1/2'>
                             <h2 className='text-white lg:w-96  mx-auto lg:text-2xl  bg-black lg:px-5 lg:py-4 rounded-full lg:font-normal uppercase ' > Martial Arts Academy </h2>
-                            <h1 className='bg-red-700 text-white text-xs lg:text-5xl font-bold lg:px-8 lg:py-4 rounded-full uppercase'>Train with best Legends</h1>
+                            <h1 className='bg-[#E80040] text-white text-xs lg:text-5xl font-bold lg:px-8 lg:py-4 rounded-full uppercase'>Train with best Legends</h1>
                             <p className='text-xs lg:text-xl' >
                                 Every day we bring hope to millions of children in the world's
                                 <br />
                                 hardest places as a sign of God's unconditional love.</p>
                             <div>
-                                <button className='btn bg-red-700 text-white border-none hover:btn-outline'>Apply Now <FaArrowRight /> </button>
+                                <button className='btn bg-[#E80040] text-white border-none hover:btn-outline'>Apply Now <FaArrowRight /> </button>
                             </div>
                         </div>
                     </div>
