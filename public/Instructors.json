@@ -1,0 +1,32 @@
+[
+    {
+        "img": "https://i.ibb.co/p4scPqX/4.jpg",
+        "instructorName": "John Doe",
+        "instructorEmail": "johndoe@example.com"
+    },
+    {
+        "img": "https://i.ibb.co/bWSYs7Y/3.jpg",
+        "instructorName": "Jane Smith",
+        "instructorEmail": "janesmith@example.com"
+    },
+    {
+        "img": "https://i.ibb.co/CsXVczK/1-1.jpg",
+        "instructorName": "David Johnson",
+        "instructorEmail": "davidjohnson@example.com"
+    },
+    {
+        "img": "https://i.ibb.co/Y8Wwdyy/1.jpg",
+        "instructorName": "Emily Wilson",
+        "instructorEmail": "emilywilson@example.com"
+    },
+    {
+        "img": "https://i.ibb.co/Z1cqk6b/3.jpg",
+        "instructorName": "Michael Anderson",
+        "instructorEmail": "michaelanderson@example.com"
+    },
+    {
+        "img": "https://i.ibb.co/1bNyD8f/4.jpg",
+        "instructorName": "Sarah Davis",
+        "instructorEmail": "sarahdavis@example.com"
+    }
+]

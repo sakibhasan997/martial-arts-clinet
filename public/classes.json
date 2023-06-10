@@ -4,7 +4,6 @@
     "img": "https://i.ibb.co/Y8Wwdyy/1.jpg",
     "location": "Harmony Martial Arts Center, Serenity Town",
     "time": "Monday, 9:00 AM - 10:30 AM",
-    "studentEmails": "student4@example.com",
     "student_enroll": 2700,
     "price": 3223
   },
@@ -47,15 +46,6 @@
     "time": "Saturday, 6:00 PM - 7:30 PM",
     "student_enroll": 5000,
     "price": 3003
-  },
-  {
-    "class_name": "Beginners Photography Course",
-    "class_image": "https://i.ibb.co/ZfBk5rQ/Complete-guide-to-Photography-Online-Course-picture-1.jpg",
-    "instructor_name": "Henri Cartier-Bresson",
-    "instructor_email": "Henri Cartier-Bresson@gmail.com",
-    "avilable_seats": 60,
-    "price": 15,
-    "status": "Approved"
   }
   
 ]
