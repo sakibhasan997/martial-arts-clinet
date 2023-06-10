@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import  { useContext } from 'react';
 import { useQuery } from '@tanstack/react-query'
 import { AuthContext } from '../Providers/AuthProviders';
 
@@ -6,9 +6,9 @@ const useQueries = () => {
     const {user} = useContext(AuthContext);
 
     const {isLoading, refetch, data: cart = []} = useQuery({
-        queryKey: ['instructors', user?.email],
+        queryKey: ['carts', user?.email],
         queryFn: async () =>{
-            const res = await fetch(`https://martial-arts-server.vercel.app/all-instructors=${user?.email}`)
+            const res = await fetch(`http://localhost:5000/carts=${user?.email}`)
             return res.json();
         }
     })

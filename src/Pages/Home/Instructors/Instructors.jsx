@@ -22,7 +22,7 @@ const Instructors = () => {
 
     return (
         <>
-            <div className='mt-12'>
+            <div className='mt-20'>
                 <SectionTitle heading='Our Popular' colors='Instructors' subHeading='Join our martial art club and be healthy.' />
             </div>
             <Swiper
@@ -34,8 +34,6 @@ const Instructors = () => {
                     delay: 3500,
                     disableOnInteraction: false,
                   }}
-                onSwiper={(swiper) => console.log(swiper)}
-                onSlideChange={() => console.log('slide change')}
                 className="mySwiper mx-auto"
             >
                 <SwiperSlide>
