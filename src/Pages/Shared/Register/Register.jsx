@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import { updateProfile } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
+import SocialLogin from "./SocialLogin";
 
 const Register = () => {
 
@@ -31,29 +32,32 @@ const Register = () => {
         console.log(user);
         updateProfile(user, { displayName: data.name, photoURL: data.photo })
 
-        setError('')
-        toast('Your Auth is successful');
-        setSuccess('Your Auth is successful')
-        navigate(from, { replace: true });
+        const saveStudent = { name: data.name, email: data.email }
+        console.log(saveStudent);
+        fetch('http://localhost:5000/students', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(saveStudent)
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            if (data.insertedId) {
+              reset();
+              toast('Your Auth is successful');
+              setError('')
+              setSuccess('Your Auth is successful')
+              navigate(from, { replace: true });
+            }
+          })
       })
       .catch((error) => {
         const errorMessage = error.message;
         setError(errorMessage);
       });
   };
-
-  const handleSocial = () => {
-    gProvider()
-      .then(result => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
-        navigate(from, { replace: true })
-      })
-      .catch(error => {
-        const errorMessage = error.message;
-        console.log(errorMessage);
-      })
-  }
 
 
   // handle password eye
@@ -80,7 +84,7 @@ const Register = () => {
       </Helmet>
       <section className="hero ">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="bg-white shadow-2xl rounded-xl py-8 px-10">
+          <div className="bg-white shadow-2xl rounded-xl my-8 py-8 px-10">
             {/* header */}
             <div className="flex items-center justify-center my-5 lg:w-[555px] ">
               <p className="uppercase text-4xl font-bold text-center">
@@ -130,10 +134,10 @@ const Register = () => {
                       "focus:border-red-500 focus:ring-red-500 border-red-500"} `}
                     {...register("password", {
                       required: 'Password is required',
-                      // pattern: {
-                      //   value: /^(\S)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹])[a-zA-Z0-9~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]{10,16}$/,
-                      //   message: 'Password should include at least one uppercase, one numeric value and one special character'
-                      // },
+                      pattern: {
+                        // value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                        // message: 'Password must have one Uppercase one lower case, one number and one special character.'
+                      },
                       minLength: {
                         value: 6,
                         message: 'Minimum Required length is 6'
@@ -191,18 +195,13 @@ const Register = () => {
                 <div className="flex items-center justify-center mt-5">
                   <input
                     type='submit'
-                    value='Submit'
+                    value='Register'
                     className="h-10 btn cursor-pointer w-full rounded-lg font-bold bg-blue-700 text-white"
                   />
                 </div>
               </div>
             </div>
-            <div className="divider">OR</div>
-            <div className=" text-center">
-              <button onClick={handleSocial} className="btn btn-circle  btn-outline btn-primary">
-                <FaGoogle className='' />
-              </button>
-            </div>
+            <SocialLogin />
             <p className='mt-5'>Already Have an Account? <Link className='link-hover btn-link' to='/login'>Login</Link> </p>
           </div>
           <ToastContainer />

@@ -10,6 +10,7 @@ import AllInstructors from "../Pages/Instructors/AllInstructors";
 import Dashboard from "../Layout/Dashboard";
 import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
 import PrivateRoute from "./PrivateRoute";
+import AllStudents from "../Pages/Dashboard/AllStudents/AllStudents";
 
 const router = createBrowserRouter([
     {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
         {
           path: 'myclasses',
           element: <MyClasses/>
+        },
+        {
+          path: 'allStudents',
+          element: <AllStudents/>
         },
       ]
     }

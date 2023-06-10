@@ -6,6 +6,7 @@ import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../../Providers/AuthProviders';
+import SocialLogin from '../Register/SocialLogin';
 
 const Login = () => {
 
@@ -39,18 +40,7 @@ const Login = () => {
             });
     }
 
-    const handleGoogle = () => {
-        gProvider()
-            .then(result => {
-                const loggedUser = result.user;
-                console.log(loggedUser);
-                navigate(from, { replace: true })
-            })
-            .catch(error => {
-                const errorMessage = error.message;
-                console.log(errorMessage);
-            })
-    }
+    
 
 
     const [passwordEye, setPasswordEye] = useState(false);
@@ -97,12 +87,7 @@ const Login = () => {
                                     {/* <div className="form-control mt-6"> */}
                                     <button className="btn btn-primary mt-6" type="submit">Login</button>
                                     {/* </div> */}
-                                    <div className="divider">OR</div>
-                                    <div className='my-5 mx-auto flex gap-4'>
-                                        <button onClick={handleGoogle} className="btn btn-circle btn-outline btn-primary">
-                                            <FaGoogle className='' />
-                                        </button>
-                                    </div>
+                                    <SocialLogin/>
                                     <p className='mt-5'>Don't Have an Account? <Link className='link-hover btn-link' to='/register'>Register</Link> </p>
                                 </div>
                             </div>

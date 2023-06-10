@@ -7,6 +7,7 @@ import { CiDark } from 'react-icons/ci';
 import { MdDarkMode } from 'react-icons/md';
 import useQueries from '../../../Hooks/useQueries';
 import { FaShoppingCart } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
@@ -16,9 +17,26 @@ const Navbar = () => {
     const [cart] = useQueries();
 
     const handleLogOut = () => {
-        logOut()
-            .then()
-            .catch()
+        Swal.fire({
+            title: 'Are you sure to LogOut?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'LogOut!',
+                    'You on to LogOut.',
+                    'success'
+                )
+                logOut()
+                    .then()
+                    .catch()
+            }
+        })
+
     }
 
     const navLink = <>
@@ -35,7 +53,7 @@ const Navbar = () => {
                         <div className="badge badge-secondary">+{cart?.length || 0}</div>
                     </button>
                 </NavLink></li>
-                <li><NavLink title='Dashboard' to='/dashboard'>Dashboard </NavLink></li>
+                <li><NavLink title='Dashboard' to='/dashboard/myclasses'>Dashboard </NavLink></li>
 
             </>
             :

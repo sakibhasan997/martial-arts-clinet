@@ -10,8 +10,8 @@ ul a.active{
     padding: 8px 20px;
 }
 .drawer-side a.active{
-  background-color:#1A2F4E;
-    color: #fff;
+  background-color: #fff;
+    color: #1A2F4E;
     font-weight: 700;
     border-radius: 30px;
     padding: 8px 20px;
