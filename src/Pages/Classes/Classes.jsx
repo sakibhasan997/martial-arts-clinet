@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import SectionTitle from '../../../components/SectionTIitle/SectionTitle';
-import { FaAccessibleIcon, FaDollarSign, FaMapMarkerAlt, FaRegClock } from 'react-icons/fa';
+import SectionTitle from '../../components/SectionTIitle/SectionTitle';
+import { Helmet } from 'react-helmet-async';
+import { FaAccessibleIcon, FaDollarSign, FaRegClock } from 'react-icons/fa';
 
-const PopularClass = () => {
+const Classes = () => {
+
     const [popular, setPopular] = useState([]);
 
     useEffect(() => {
-        fetch('https://martial-arts-server.vercel.app/top-classes')
+        fetch('https://martial-arts-server.vercel.app/classes')
             .then(res => res.json())
             .then(data => {
                 setPopular(data);
@@ -15,6 +17,9 @@ const PopularClass = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Martial Arts | Classes</title>
+            </Helmet>
             <SectionTitle heading='Our Popular' colors='Classes' subHeading='Join our martial art club and be healthy.' />
             <div>
                 <div className='grid gird-cols-1 lg:grid-cols-3 gap-5'>
@@ -30,7 +35,7 @@ const PopularClass = () => {
                                         <h2 className="card-title text-black text-2xl font-semibold"> <span className='text-red-600 font-serif'>Classes</span> | {item.className}</h2>
                                         <h2 className="card-title text-black text-xl font-semibold"> <span className='text-red-600 font-serif'>Instructors</span> | {item.instructorName}</h2>
                                         <p className='flex gap-3'> <FaAccessibleIcon /> availableSeats: {item.availableSeats}</p>
-                                        <p className='italic flex gap-3' > <FaRegClock /> StudentEnroll: {item.studentEnroll}</p>
+                                        <p className='italic flex gap-3' > <FaRegClock /> {item.time}</p>
                                         <p className='flex gap-3'> <FaDollarSign /> Price:  ${item.price}</p>
                                         <div className="card-actions justify-end">
                                             <button className="btn bg-[#E80040] text-white">Select </button>
@@ -46,5 +51,4 @@ const PopularClass = () => {
     );
 };
 
-export default PopularClass;
-// bg-gradient-to-r from-[#15151559] to-[rgba(21, 21, 21, 0)]
+export default Classes;

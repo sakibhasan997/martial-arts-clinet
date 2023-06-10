@@ -5,7 +5,7 @@ import Login from "../Pages/Shared/Login/Login";
 import PasswordValidation from "../Layout/PasswordValidation";
 import Register from "../Pages/Shared/Register/Register";
 import ErrorPage from "../Pages/Shared/404-Page/ErrorPage";
-import Classes from "../Pages/Home/Classes/Classes";
+import Classes from "../Pages/Classes/Classes";
 
 const router = createBrowserRouter([
     {

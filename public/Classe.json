@@ -33,7 +33,7 @@
       "price": 39.99
     },
     {
-      "className": "Dynamic  Thai Kickboxing",
+      "className": "Dynamic  Kickboxing",
       "img": "https://i.ibb.co/rdLh590/4-1.jpg",
       "location": "Thunderstrike Gym, Velocity City",
       "time": "Thursday, 5:30 PM - 7:00 PM",
@@ -44,7 +44,7 @@
       "price": 54.99
     },
     {
-      "className": "Graceful Aikido Techniques",
+      "className": "Graceful Techniques",
       "img": "https://i.ibb.co/1bNyD8f/4.jpg",
       "location": "Harmony Martial Arts Center, Serenity Town",
       "time": "Friday, 7:30 PM - 9:00 PM",
@@ -88,7 +88,7 @@
       "price": 39.99
     },
     {
-      "className": "Dynamic Karate Training",
+      "className": "Dynamic Training",
       "img": "https://i.ibb.co/4ssX11b/2.jpg",
       "location": "Focus Martial Arts Dojo, Precision City",
       "time": "Thursday, 7:00 PM - 8:30 PM",
@@ -132,7 +132,7 @@
       "price": 54.99
     },
     {
-      "className": "Energetic Kickboxing Cardio",
+      "className": "Energetic Kickboxing",
       "img": "https://i.ibb.co/qk0cV20/5.jpg",
       "location": "StrikeFit Training Center, Energy City",
       "time": "Wednesday, 6:30 PM - 8:00 PM",
@@ -152,5 +152,16 @@
       "studentEnroll": 14,
       "availableSeats": 16,
       "price": 44.99
-    }
+    },
+    {
+        "className": "Powerful  Techniques",
+        "img": "https://i.ibb.co/rdLh590/4-1.jpg",
+        "location": "StrikeZone Dojang, Velocity City",
+        "time": "Tuesday, 7:30 PM - 9:00 PM",
+        "instructorName": "Alex Kim",
+        "instructorEmail": "alexkim@example.com",
+        "studentEnroll": 10,
+        "availableSeats": 20,
+        "price": 59.99
+      }
   ]

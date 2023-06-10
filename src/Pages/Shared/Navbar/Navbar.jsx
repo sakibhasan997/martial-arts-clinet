@@ -54,7 +54,7 @@ const Navbar = () => {
                 </div>
                 <br />
                 <div className="navbar-end">
-                    <button>
+                    <button className='px-8'>
                         {isDark ? <CiDark className="cursor-pointer text-2xl" onClick={() => setIsDark(false)} /> : <MdDarkMode className="cursor-pointer text-2xl" onClick={() => setIsDark(true)} />}
                     </button>
 
