@@ -44,6 +44,8 @@ ul a.active{
 }
 
 
+
+
 @layer components{
     .pagesLinks{
       @apply my-2 text-sm font-bold text-center px-2 tracking-wide 
@@ -53,6 +55,9 @@ ul a.active{
     }
     .centered{
       @apply flex justify-center items-center
+    }
+    .my-w{
+      @apply max-w-[1170px] my-10 mx-auto 
     }
   
   }

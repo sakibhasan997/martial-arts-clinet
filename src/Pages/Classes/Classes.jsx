@@ -20,9 +20,9 @@ const Classes = () => {
             <Helmet>
                 <title>Martial Arts | Classes</title>
             </Helmet>
-            <SectionTitle heading='Our Popular' colors='Classes' subHeading='Join our martial art club and be healthy.' />
+            <SectionTitle heading='Our All' colors='Classes' subHeading='Join our martial art club and be healthy.' />
             <div>
-                <div className='grid gird-cols-1 lg:grid-cols-3 gap-5'>
+                <div className='grid gird-cols-1 lg:grid-cols-3 gap-5 my-10'>
                     {
                         popular.map(item => (
                             <div key={item._id}>
