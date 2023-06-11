@@ -3,11 +3,13 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FaTrashAlt, FaUserGraduate, FaUserShield } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 
 const AllStudents = () => {
+    const [axiosSecure] = useAxiosSecure();
     const { data: students = [], refetch } = useQuery(['students'], async () => {
-        const res = await fetch('http://localhost:5000/students')
-        return res.json();
+        const res = await axiosSecure.get('/students')
+        return res.data;
     })
 
     const handleMakeAdmin = user => {
