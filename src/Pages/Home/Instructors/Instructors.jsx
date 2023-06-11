@@ -1,6 +1,6 @@
 import React from 'react';
 import SectionTitle from '../../../components/SectionTIitle/SectionTitle';
-import { Navigation, Pagination, Scrollbar, A11y,Autoplay } from 'swiper';
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -27,26 +27,38 @@ const Instructors = () => {
             </div>
             <Swiper
                 // install Swiper modules
-                modules={[Autoplay,Navigation, Pagination, Scrollbar, A11y]}
-                
+                modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
+
                 centeredSlides={true}
                 autoplay={{
                     delay: 3500,
                     disableOnInteraction: false,
-                  }}
+                }}
                 className="mySwiper mx-auto"
             >
-                <SwiperSlide>
-                    <img className='mx-auto ' src={img} alt="" />
+                <SwiperSlide className=''>
+                    <div className='flex gap-4 justify-between'>
+                        <img className='mx-auto ' src={img} alt="" />
+                        <img className='mx-auto ' src={img2} alt="" />
+                    </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='mx-auto' src={img2} alt="" />
+                <div className='flex gap-4 justify-between'>
+                        <img className='mx-auto ' src={img2} alt="" />
+                        <img className='mx-auto ' src={img3} alt="" />
+                    </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='mx-auto' src={img3} alt="" />
+                <div className='flex gap-4 justify-between'>
+                        <img className='mx-auto ' src={img3} alt="" />
+                        <img className='mx-auto ' src={img4} alt="" />
+                    </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='mx-auto' src={img4} alt="" />
+                <div className='flex gap-4 justify-between'>
+                        <img className='mx-auto ' src={img4} alt="" />
+                        <img className='mx-auto ' src={img} alt="" />
+                    </div>
                 </SwiperSlide>
             </Swiper>
         </>

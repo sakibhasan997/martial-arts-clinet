@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { FaBook, FaBookOpen, FaHome, FaIdCard, FaUserGraduate, FaUsers } from 'react-icons/fa';
+import { FaBook, FaBookOpen, FaHome, FaIdCard, FaUserGraduate, FaUsers, FaWallet } from 'react-icons/fa';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import useQueries from '../Hooks/useQueries';
 import useAdmin from '../Hooks/useAdmin';
@@ -77,6 +77,7 @@ const Dashboard = () => {
                                     <span className="badge inl badge-secondary">+{cart?.length || 0}</span>
                                 </NavLink></li>
                                 <li><NavLink to='/'><FaIdCard /> My Enrolled Classes</NavLink></li>
+                                <li><NavLink to='/'><FaWallet /> Payment</NavLink></li>
                             </> : <></>
                         }
 
