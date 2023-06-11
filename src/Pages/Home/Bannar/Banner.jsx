@@ -10,7 +10,7 @@ const Banner = () => {
     return (
         <>
 
-            <div className="carousel w-full pt-20 lg:pt-0">
+            <div className="carousel w-full lg:h-screen pt-20 lg:pt-0">
                 <div id="slide1" className="carousel-item  relative w-full">
                     <img src={banner3} className="w-full " />
                     <div className="absolute rounded-xl flex justify-center text-center items-center h-full w-full right-0 bottom-0 ">

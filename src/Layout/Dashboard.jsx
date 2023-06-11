@@ -37,6 +37,9 @@ const Dashboard = () => {
 
                         {
                             isAdmin ? <>
+                                <li className='mt-5'><NavLink to='/dashboard/adminHome'> <FaHome /> Admin Home
+                                    {/* <span className="badge inl badge-secondary">+{cart?.length || 0}</span> */}
+                                </NavLink></li>
                                 <li className='my-5'><NavLink to='/dashboard/manageClass'> <FaBook /> Manage Classes
                                     {/* <span className="badge inl badge-secondary">+{cart?.length || 0}</span> */}
                                 </NavLink></li>
@@ -51,10 +54,13 @@ const Dashboard = () => {
                         }
                         {
                             isInstructors ? <>
-                                <li className='my-5'><NavLink to='/dashboard/manageClass'> <FaBook /> Instructors Classes
+                                <li className='mt-5'><NavLink to='/dashboard/instructorHome'> <FaHome /> Instructor Home
                                     {/* <span className="badge inl badge-secondary">+{cart?.length || 0}</span> */}
                                 </NavLink></li>
-                                <li><NavLink to='/dashboard/allStudents'><FaUsers></FaUsers>  Instructors</NavLink></li>
+                                <li className='my-5'><NavLink to='/dashboard/addClass'> <FaBook /> Add a Class
+                                    {/* <span className="badge inl badge-secondary">+{cart?.length || 0}</span> */}
+                                </NavLink></li>
+                                <li><NavLink to='/dashboard/InstructorClass'><FaUsers></FaUsers> My Classes</NavLink></li>
                             </> : <>
                                 {/* <li className='my-5'><NavLink to='/dashboard/myclasses'> <FaBook /> My Selected Classes
                                     <span className="badge inl badge-secondary">+{cart?.length || 0}</span>
@@ -73,6 +79,8 @@ const Dashboard = () => {
 
                         {
                             !isAdmin && !isInstructors ? <>
+                                <li className='mt-5'><NavLink to='/dashboard/studentHome'> <FaHome /> Student Home
+                                </NavLink></li>
                                 <li className='my-5'><NavLink to='/dashboard/myclasses'> <FaBook /> My Selected Classes
                                     <span className="badge inl badge-secondary">+{cart?.length || 0}</span>
                                 </NavLink></li>

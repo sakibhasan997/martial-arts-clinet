@@ -12,6 +12,12 @@ import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
 import PrivateRoute from "./PrivateRoute";
 import AllStudents from "../Pages/Dashboard/AllStudents/AllStudents";
 import AdminRoute from "./AdminRoute";
+import AddClass from "../Pages/Dashboard/AddItem/AddClass";
+import InstructorRoute from "./InstructorRoute";
+import StudentHome from "../Pages/Dashboard/StudentHome/StudentHome";
+import InstructorHome from "../Pages/Dashboard/InstructorHome/InstructorHome";
+import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
+import InstructorsAddClass from "../Pages/Dashboard/InatructorAddClass/InstructorsAddClass";
 
 const router = createBrowserRouter([
     {
@@ -51,14 +57,37 @@ const router = createBrowserRouter([
     {
       path: 'dashboard',
       element: <PrivateRoute><Dashboard/></PrivateRoute>,
+      // errorElement: <ErrorPage/>,
       children: [
+        // Students Routes
+        {
+          path: 'studentHome',
+          element: <StudentHome/>
+        },
         {
           path: 'myclasses',
           element: <MyClasses/>
         },
-        // instructor
 
-        // admin
+        // Instructor Routes
+        {
+          path: 'instructorHome',
+          element: <InstructorRoute><InstructorHome/></InstructorRoute>,
+        },
+        {
+          path: 'addClass',
+          element: <InstructorRoute><AddClass/></InstructorRoute>,
+        },
+        {
+          path: 'InstructorClass',
+          element: <InstructorRoute><InstructorsAddClass/></InstructorRoute>,
+        },
+
+        // Admin Routes
+        {
+          path: 'adminHome',
+          element: <AdminRoute><AdminHome/></AdminRoute>
+        },
         {
           path: 'allStudents',
           element: <AdminRoute><AllStudents/></AdminRoute>
