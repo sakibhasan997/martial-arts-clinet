@@ -69,7 +69,6 @@ const AllStudents = () => {
                             <th>Email</th>
                             <th>Instructors</th>
                             <th>Admin</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody className=''>
@@ -78,13 +77,12 @@ const AllStudents = () => {
                                 <th>{index + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td>{user.role === 'instructor' ? 'instructor' :
-                                    <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-[#2f6661] text-white"><FaUserGraduate /></button>
-                                }</td>
-                                <td>{user.role === 'admin' ? 'admin' :
-                                    <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-[#2f6661] text-white"><FaUserShield></FaUserShield></button>
-                                }</td>
-                                <td><button className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button></td>
+                                <td>
+                                    <button disabled={user.role === 'instructor'} onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-[#2f6661] text-white"><FaUserGraduate /></button>
+                                </td>
+                                <td>
+                                    <button disabled={user.role === 'admin'} onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-[#2f6661] text-white"><FaUserShield></FaUserShield></button>
+                                </td>
                             </tr>)
                         }
 

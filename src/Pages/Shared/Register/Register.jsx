@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaGoogle } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import { updateProfile } from "firebase/auth";
@@ -13,7 +12,7 @@ const Register = () => {
 
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('')
-  const { user, createRegister, gProvider } = useContext(AuthContext);
+  const {  createRegister } = useContext(AuthContext);
   const { register, handleSubmit, reset, watch, formState: { errors } } = useForm({
     mode: 'onTouched'
   });
@@ -91,7 +90,6 @@ const Register = () => {
                 Please Register Now
               </p>
             </div>
-
             {/* body */}
             <div>
               <div className="mx-5">
@@ -120,7 +118,6 @@ const Register = () => {
                     className="input input-bordered" required
                     {...register("photo")}
                   />
-
                 </div>
                 {/* password section */}
                 <div className="mt-5 relative">

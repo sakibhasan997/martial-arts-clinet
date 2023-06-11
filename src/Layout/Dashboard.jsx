@@ -3,14 +3,19 @@ import { Helmet } from 'react-helmet-async';
 import { FaBook, FaBookOpen, FaHome, FaIdCard, FaUserGraduate, FaUsers } from 'react-icons/fa';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import useQueries from '../Hooks/useQueries';
+import useAdmin from '../Hooks/useAdmin';
+import useInstructor from '../Hooks/useInstructor';
+import useAuth from '../Hooks/useAuth';
 
 const Dashboard = () => {
 
     const [cart] = useQueries();
+    const { user } = useAuth();
 
     // TODO
-    const isAdmin = true;
-    const isInstructors = true;
+    const [isAdmin] = useAdmin();
+
+    const [isInstructors] = useInstructor();
 
     return (
         <div>
@@ -31,23 +36,48 @@ const Dashboard = () => {
                         {/* <li className=''><Link to='/dashboard/myclasses'> <FaHome /> Student Home</Link></li> */}
 
                         {
-                            isAdmin ?
-                                <>
-                                    <li className='my-5'><NavLink to='/dashboard/manageClass'> <FaBook /> Manage Classes
-                                        {/* <span className="badge inl badge-secondary">+{cart?.length || 0}</span> */}
-                                    </NavLink></li>
-                                    <li><NavLink to='/dashboard/allStudents'><FaUsers></FaUsers> Manage Users</NavLink></li>
-                                </>
-                                :
-                                <>
-                                    <li className='my-5'><NavLink to='/dashboard/myclasses'> <FaBook /> My Selected Classes
+                            isAdmin ? <>
+                                <li className='my-5'><NavLink to='/dashboard/manageClass'> <FaBook /> Manage Classes
+                                    {/* <span className="badge inl badge-secondary">+{cart?.length || 0}</span> */}
+                                </NavLink></li>
+                                <li><NavLink to='/dashboard/allStudents'><FaUsers></FaUsers> Manage Users</NavLink></li>
+                            </>
+                                : <>
+                                    {/* <li className='my-5'><NavLink to='/dashboard/myclasses'> <FaBook /> My Selected Classes
                                         <span className="badge inl badge-secondary">+{cart?.length || 0}</span>
                                     </NavLink></li>
-                                    <li><NavLink to='/'><FaIdCard /> My Enrolled Classes</NavLink></li>
+                                    <li><NavLink to='/'><FaIdCard /> My Enrolled Classes</NavLink></li> */}
                                 </>
                         }
                         {
-                            isInstructors ? <></> : <></>
+                            isInstructors ? <>
+                                <li className='my-5'><NavLink to='/dashboard/manageClass'> <FaBook /> Instructors Classes
+                                    {/* <span className="badge inl badge-secondary">+{cart?.length || 0}</span> */}
+                                </NavLink></li>
+                                <li><NavLink to='/dashboard/allStudents'><FaUsers></FaUsers>  Instructors</NavLink></li>
+                            </> : <>
+                                {/* <li className='my-5'><NavLink to='/dashboard/myclasses'> <FaBook /> My Selected Classes
+                                    <span className="badge inl badge-secondary">+{cart?.length || 0}</span>
+                                </NavLink></li>
+                                <li><NavLink to='/'><FaIdCard /> My Enrolled Classes</NavLink></li> */}
+                            </>
+                        }
+                        {/* {
+                            user ? <>
+                                <li className='my-5'><NavLink to='/dashboard/myclasses'> <FaBook /> My Selected Classes
+                                    <span className="badge inl badge-secondary">+{cart?.length || 0}</span>
+                                </NavLink></li>
+                                <li><NavLink to='/'><FaIdCard /> My Enrolled Classes</NavLink></li>
+                            </> : <></>
+                        } */}
+
+                        {
+                            !isAdmin && !isInstructors ? <>
+                                <li className='my-5'><NavLink to='/dashboard/myclasses'> <FaBook /> My Selected Classes
+                                    <span className="badge inl badge-secondary">+{cart?.length || 0}</span>
+                                </NavLink></li>
+                                <li><NavLink to='/'><FaIdCard /> My Enrolled Classes</NavLink></li>
+                            </> : <></>
                         }
 
 

@@ -53,7 +53,7 @@ const Navbar = () => {
                         <div className="badge badge-secondary">+{cart?.length || 0}</div>
                     </button>
                 </NavLink></li>
-                <li><NavLink title='Dashboard' to='/dashboard/myclasses'>Dashboard </NavLink></li>
+                <li><NavLink title='Dashboard' to='/dashboard'>Dashboard </NavLink></li>
 
             </>
             :
