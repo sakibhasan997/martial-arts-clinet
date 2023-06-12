@@ -33,7 +33,7 @@ const Register = () => {
 
         const saveStudent = { name: data.name, email: data.email }
         console.log(saveStudent);
-        fetch('http://localhost:5000/students', {
+        fetch('https://martial-arts-server.vercel.app/students', {
           method: 'POST',
           headers: {
             'content-type': 'application/json'

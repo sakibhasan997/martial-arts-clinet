@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 
 const MyEnroll = () => {
-    // const { user, loading } = useAuth();
+    const { user } = useAuth();
     // const [axiosSecure] = useAxiosSecure();
     const [payments, setPayment] = useState([]);
 
@@ -22,10 +22,18 @@ const MyEnroll = () => {
     //     }
     // })
 
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/payments?email=${user?.email}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data);
+    //         })
+    // }, [])
+
     // return[payment, refetch]
 
     useEffect(() => {
-        fetch(`http://localhost:5000/payments/student`)
+        fetch(`https://martial-arts-server.vercel.app/payments/student`)
             .then(res => res.json())
             .then(data => {
                 setPayment(data)

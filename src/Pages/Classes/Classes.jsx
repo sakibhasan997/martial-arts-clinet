@@ -22,6 +22,7 @@ const Classes = () => {
                 setPopular(data);
             })
     }, [])
+    
 
 
     const handleAddToCart = items => {
@@ -30,7 +31,7 @@ const Classes = () => {
             const cartItem = { classItemId: items._id, name: items.className, img: items.img, price: items.price, email: user.email }
             console.log(cartItem);
             // TODO: use localhost
-            fetch('http://localhost:5000/carts', {
+            fetch('https://martial-arts-server.vercel.app/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

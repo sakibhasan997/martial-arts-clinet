@@ -49,7 +49,7 @@ const AuthProviders = ({ children }) => {
 
             // token get and post 
             if (loggedUser) {
-                axios.post('http://localhost:5000/jwt', { email: loggedUser.email })
+                axios.post('https://martial-arts-server.vercel.app/jwt', { email: loggedUser.email })
                     .then(data => {
                         console.log(data.data.token);
                         localStorage.setItem('access-token', data.data.token)

@@ -10,7 +10,7 @@ const InstructorsAddClass = () => {
     const { user } = useAuth();
     const [myClass, setMyClass] = useState([]);
 
-    const url = `http://localhost:5000/classes?email=${user?.email}`
+    const url = `https://martial-arts-server.vercel.app/classes?email=${user?.email}`
     console.log(user);
 
     useEffect(() => {
