@@ -23,7 +23,7 @@ const Navbar = () => {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Yes, !'
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire(
