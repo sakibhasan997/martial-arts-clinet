@@ -84,8 +84,8 @@ const Dashboard = () => {
                                 <li className='my-5'><NavLink to='/dashboard/myclasses'> <FaBook /> My Selected Classes
                                     <span className="badge inl badge-secondary">+{cart?.length || 0}</span>
                                 </NavLink></li>
-                                <li><NavLink to='/'><FaIdCard /> My Enrolled Classes</NavLink></li>
-                                <li><NavLink to='/'><FaWallet /> Payment</NavLink></li>
+                                <li className='mb-5'><NavLink to='/'><FaIdCard /> My Enrolled Classes</NavLink></li>
+                                <li><NavLink to='/dashboard/payment'><FaWallet /> Payment</NavLink></li>
                             </> : <></>
                         }
 

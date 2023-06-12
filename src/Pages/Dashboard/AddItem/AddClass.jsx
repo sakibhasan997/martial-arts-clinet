@@ -10,13 +10,15 @@ import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 
 // const img_hosting_token = import.meta.env.VITE_IMG
 const AddClass = () => {
-    const { user } = useAuth();
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { user, loading } = useAuth();
+    const { register, reset, handleSubmit, formState: { errors } } = useForm();
     // const [axiosSecure] = useAxiosSecure();
     // const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
 
     const onSubmit = data => {
         data.status = "pending"
+        
+
         fetch("http://localhost:5000/classes", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -32,7 +34,7 @@ const AddClass = () => {
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
-                    // data.reset();
+                    reset();
                 }
             });
 
