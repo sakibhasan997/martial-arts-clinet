@@ -132,8 +132,8 @@ const Register = () => {
                     {...register("password", {
                       required: 'Password is required',
                       pattern: {
-                        // value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
-                        // message: 'Password must have one Uppercase one lower case, one number and one special character.'
+                        value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                        message: 'Password must have one Uppercase one lower case, one number and one special character.'
                       },
                       minLength: {
                         value: 6,

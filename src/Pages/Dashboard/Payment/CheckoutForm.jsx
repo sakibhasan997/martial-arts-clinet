@@ -1,13 +1,33 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React from 'react';
 import { useState } from 'react';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import useAuth from '../../../Hooks/useAuth';
+import { useEffect } from 'react';
+import Swal from 'sweetalert2';
 // import './CheckoutForm.css'
 
-const CheckoutForm = () => {
-
+const CheckoutForm = ({ cart, price }) => {
+    // console.log(cart);
+    const { user } = useAuth()
     const stripe = useStripe();
     const elements = useElements();
+    const [axiosSecure] = useAxiosSecure();
     const [cardError, setCardError] = useState('');
+    const [processing, setProcessing] = useState(false);
+    const [clientSecret, setClientSecret] = useState('');
+    const [transactionId, setTransactionId] = useState('');
+
+    useEffect(() => {
+        if (price > 0) {
+            axiosSecure.post('/create-payment-intent', { price })
+                .then(res => {
+                    console.log(res.data.clientSecret)
+                    setClientSecret(res.data.clientSecret);
+                })
+        }
+    }, [price, axiosSecure])
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -20,23 +40,69 @@ const CheckoutForm = () => {
         if (card === null) {
             return
         }
-        const { error,paymentMethod } = await stripe.createPaymentMethod({
+        const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
             card
         })
-        if(error){
+        if (error) {
             console.log('error', error);
             setCardError(error.message);
         }
-        else{
+        else {
             setCardError('');
             // console.log(paymentMethod);
         }
+
+        setProcessing(true)
+        const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        email: user?.email || 'unknown',
+                        name: user?.displayName || 'anonymous'
+                    },
+                },
+            },
+        );
+        if (confirmError) {
+            console.log(confirmError);
+        }
+        console.log('payment intent', paymentIntent)
+        setProcessing(false)
+        if (paymentIntent.status === 'succeeded') {
+            setTransactionId(paymentIntent.id);
+            const payment = {
+                email: user?.email,
+                transactionId: paymentIntent.id,
+                price,
+                date: new Date(),
+                quantity: cart.length,
+                cartItems: cart.map(item => item._id),
+                classItems: cart.map(item => item.classItemId),
+                status: 'Pending',
+                itemNames: cart.map(item => item.name)
+            }
+            axiosSecure.post('/payments', payment)
+                .then(res => {
+                    console.log(res.data);
+                    if (res.data.insertResult.insertedId) {
+                        Swal.fire(
+                            'Payment Successful',
+                            'Your Payment Successfully',
+                            'success'
+                          )
+                    }
+                })
+
+        }
+
     }
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form className='pay-input' onSubmit={handleSubmit}>
                 <CardElement
                     options={{
                         style: {
@@ -54,12 +120,13 @@ const CheckoutForm = () => {
                     }}
                 />
                 <div className='pey mt-5'>
-                    <button className='bg-[#2f6661]' type="submit" disabled={!stripe}>
+                    <button className='bg-[#2f6661]' type="submit" disabled={!stripe || !clientSecret}>
                         Pay
                     </button>
                 </div>
             </form>
             {cardError && <p className="text-red-600 ml-8">{cardError}</p>}
+            {transactionId && <p className="text-green-500 my-10">transactionId: {transactionId}</p>}
         </>
     );
 };
